@@ -2,10 +2,12 @@ import { useParams } from "react-router-dom"
 import { useState, useEffect } from "react"
 
 import backUpImage from "../assets/backup.png"
+import { useTitle } from "../hooks/useTitle"
 
-export const MovieItem = () => {
+export const MovieItem = ({ title }) => {
   const params = useParams()
   const [data, setData] = useState([])
+  useTitle(data.title)
   const image = data.poster_path
     ? `https://image.tmdb.org/t/p/w500/${data.poster_path}`
     : backUpImage
@@ -20,6 +22,7 @@ export const MovieItem = () => {
     }
     fetchMovie()
   }, [params])
+
   return (
     <main>
       <section className="flex justify-around flex-wrap py-5">

@@ -1,8 +1,12 @@
 /* eslint-disable jsx-a11y/iframe-has-title */
 import { Link } from "react-router-dom"
 import giphy from "../assets/giphy.gif"
+import { useEffect } from "react"
 
 export const PageNotFound = () => {
+  useEffect(() => {
+    document.title = `Page Not Found / Moviehub`
+  })
   return (
     <main>
       <section className="flex flex-col justify-center items-center my-4">
